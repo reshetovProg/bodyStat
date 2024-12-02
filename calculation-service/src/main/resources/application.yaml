@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: CALCULATION-SERVICE
+
+  datasource:
+    url: ${BODYSTAT_DB_URL:jdbc:postgresql://localhost:5432/bodystat}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:142536}
+
+  liquibase:
+    enabled: false
+
+server:
+  port: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

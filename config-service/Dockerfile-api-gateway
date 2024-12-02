@@ -1,0 +1,5 @@
+# docker/Dockerfile-api-gateway
+FROM openjdk:21-jdk
+#COPY ../api-gateway/target/api-gateway.jar /app/api-gateway.jar
+WORKDIR /app
+ENTRYPOINT ["java", "-jar", "api-gateway.jar"]

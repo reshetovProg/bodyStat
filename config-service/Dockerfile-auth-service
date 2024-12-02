@@ -1,0 +1,5 @@
+# docker/Dockerfile-auth-service
+FROM openjdk:21-jdk
+#COPY ../auth-service/target/auth-service.jar /app/auth-service.jar
+WORKDIR /app
+ENTRYPOINT ["java", "-jar", "auth-service.jar"]

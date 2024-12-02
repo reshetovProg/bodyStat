@@ -1,0 +1,5 @@
+# docker/Dockerfile-eureka-server
+FROM openjdk:21-jdk
+#COPY ../eureka-server/target/eureka-server.jar /app/eureka-server.jar
+WORKDIR /app
+ENTRYPOINT ["java", "-jar", "eureka-server.jar"]

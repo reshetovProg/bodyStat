@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: AUTH-SERVICE
+
+  datasource:
+    url: ${AUTH_DB_URL:jdbc:postgresql://localhost:5432/bodystat_auth}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:142536}
+
+  liquibase:
+    enabled: false
+
+server:
+  port: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

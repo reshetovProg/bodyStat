@@ -1,0 +1,5 @@
+# docker/Dockerfile-calculation-service
+FROM openjdk:21-jdk
+#COPY ../calculation-service/target/calculation-service.jar /app/calculation-service.jar
+WORKDIR /app
+ENTRYPOINT ["java", "-jar", "calculation-service.jar"]
