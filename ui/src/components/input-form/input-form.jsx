@@ -7,7 +7,14 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import {Button} from "react-bootstrap";
 
+import {useAppStore} from "../../store/AppStoreProvider";
+
+
 function InputForm() {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const appStore = useAppStore();
+
     const [data, setData] = useState({
         neck: 0,
         wrist: 0,
@@ -24,7 +31,6 @@ function InputForm() {
 
     const handleChange = (e) => {
         const value = e.target.value;
-        console.log(e.target.name);
         setData({
             ...data,
             [e.target.name]: value
@@ -46,6 +52,7 @@ function InputForm() {
             breast: data.breast,
             pelvis: data.pelvis
         };
+        appStore.addParams(bodyData);
         console.log(JSON.stringify(bodyData));
         axios.post("http://localhost:8080/api/v1/params", JSON.stringify(bodyData), {
             headers: {

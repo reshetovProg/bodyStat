@@ -7,8 +7,12 @@ spring:
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:142536}
 
+
   liquibase:
     enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create
 
 server:
   port: 8080
