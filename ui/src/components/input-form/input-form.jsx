@@ -52,8 +52,8 @@ function InputForm() {
             breast: data.breast,
             pelvis: data.pelvis
         };
-        appStore.addParams(bodyData);
-        console.log(JSON.stringify(bodyData));
+        appStore.addParams({bodyData});
+        // console.log(JSON.stringify(bodyData));
         axios.post("http://localhost:8080/api/v1/params", JSON.stringify(bodyData), {
             headers: {
                 // Overwrite Axios's automatically set Content-Type
