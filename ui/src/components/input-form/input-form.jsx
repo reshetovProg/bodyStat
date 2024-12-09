@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 import "./input-form.css"
@@ -52,7 +52,7 @@ function InputForm() {
             breast: data.breast,
             pelvis: data.pelvis
         };
-        appStore.addParams({bodyData});
+        appStore.addParams(bodyData);
         // console.log(JSON.stringify(bodyData));
         axios.post("http://localhost:8080/api/v1/params", JSON.stringify(bodyData), {
             headers: {
@@ -60,7 +60,7 @@ function InputForm() {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            console.log(response.status, response.data.token);
+            console.log(response.status, response);
         });
     };
     return (

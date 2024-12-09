@@ -53,6 +53,7 @@ public class ParamsController {
 
     @GetMapping
     List<Param> allParams() {
-        return paramService.allParams();
+        var params =  paramService.allParams();
+        return params;
     }
 }

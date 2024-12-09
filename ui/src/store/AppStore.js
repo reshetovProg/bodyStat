@@ -1,13 +1,22 @@
+import axios from "axios";
+
 export const createAppStore = (props) => {
     return {
         params: [],
-        addParams: function (line){
-            this.params.push(line)
-            console.log()
+
+        setParams(line){
+            this.params = line;
         },
-        test: props.test || 'Hello world',
-        toggleTest: function (param) {
-            this.test = param
+
+        addParams(line){
+            if (Array.isArray(this.params))
+                this.params.push(line)
         },
+
+        async updateParams(){
+            const response =  await axios.get("http://localhost:8080/api/v1/params");
+            this.setParams(response.data);
+
+        }
     };
 };
