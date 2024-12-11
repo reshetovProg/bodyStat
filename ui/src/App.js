@@ -1,16 +1,16 @@
 import './App.css';
-import InputForm from "./components/input-form/input-form";
-import BodyTable from "./components/body-table/body-table";
-import {AppStoreProvider} from "./store/AppStoreProvider";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
-   <div className="flex align-items-begin">
-       <AppStoreProvider>
-            <InputForm/>
-            <BodyTable/>
-       </AppStoreProvider>
-   </div>
+      <BrowserRouter>
+          <Routes>
+              <Route path="login" element={<LoginPage />}/>
+              <Route path="/" element={<MainPage />}/>
+          </Routes>
+      </BrowserRouter>
   );
 }
 
