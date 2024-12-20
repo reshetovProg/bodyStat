@@ -11,6 +11,14 @@ function LoginPage(){
     // // eslint-disable-next-line react-hooks/rules-of-hooks
     // const appStore = useAppStore();
 
+    const loginGoogle = ()=>{
+        window.location.href = "http://localhost:8081/oauth2/authorization/google"
+    }
+
+    const loginGithub = ()=>{
+        window.location.href = "http://localhost:8081/oauth2/authorization/github"
+    }
+
     const [user, setUser] = useState({
         email: "",
         password: ""
@@ -62,6 +70,13 @@ function LoginPage(){
                     </Button>
                 </div>
             </Form>
+            <Button className="w-1/2 " variant="dark" type="submit" onClick={loginGithub}>
+                Войти с GitHub
+            </Button>
+
+            <Button className="w-1/2 " variant="dark" type="submit" onClick={loginGoogle}>
+                Войти с Google
+            </Button>
         </div>
 
     )

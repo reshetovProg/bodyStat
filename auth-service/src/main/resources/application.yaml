@@ -1,4 +1,15 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23li9srhsab5Erlzef
+            client-secret: 38a1c725dcb382fbe5088e419a3a37b5b3c0d5ea
+          google:
+            client-id: 1050657562664-ecfdm7hfjafns7kv6pjlhenvhckfln0i.apps.googleusercontent.com
+            client-secret: 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
+
   application:
     name: AUTH-SERVICE
 
@@ -16,3 +27,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+

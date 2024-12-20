@@ -7,6 +7,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
+import org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -29,15 +30,17 @@ public class WebSecurityConfig {
         return http
                 .authorizeHttpRequests(requests->requests
                         .requestMatchers("/api/v1/pages/public").permitAll()
-                        .requestMatchers("/api/v1/pages/user").hasAnyRole("USER","ADMIN")
-                        .requestMatchers("/api/v1/pages/admin").hasRole("ADMIN")
+//                        .requestMatchers("/api/v1/pages/user").hasAnyRole("USER","ADMIN")
+//                        .requestMatchers("/api/v1/pages/admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
+                .oauth2Login(oauth2 -> oauth2.defaultSuccessUrl("http://localhost:3000", true))
+//                .oauth2Login(Customizer.withDefaults())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .formLogin(form->form.loginPage("http://localhost:3000/login").permitAll()
-                        .usernameParameter("email")
-                        .passwordParameter("password")
-                        .loginProcessingUrl("api/v1/auth/login"))
+//                .formLogin(form->form.loginPage("http://localhost:3000/login").permitAll()
+//                        .usernameParameter("email")
+//                        .passwordParameter("password")
+//                        .loginProcessingUrl("api/v1/auth/login"))
                 .logout(LogoutConfigurer::permitAll)
                 .build();
     }
