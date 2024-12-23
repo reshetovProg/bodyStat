@@ -1,0 +1,8 @@
+.profile{
+    display:flex;
+    gap:5px;
+    justify-content: right;
+    align-items: center;
+    height: 30px;
+    padding: 20px;
+}

@@ -9,6 +9,18 @@ spring:
           google:
             client-id: 1050657562664-ecfdm7hfjafns7kv6pjlhenvhckfln0i.apps.googleusercontent.com
             client-secret: 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
+            scope:
+              - email
+              - profile
+              - openid
+        provider:
+          google:
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
 
   application:
     name: AUTH-SERVICE
